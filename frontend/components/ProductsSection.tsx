@@ -51,6 +51,12 @@ export default function ProductsSection({
           )}
         </div>
 
+        {products.length === 0 ? (
+          <p className="mt-12 rounded-card border border-gold/20 bg-white px-6 py-10 text-center text-ink/60">
+            Products are loading — if this stays empty, the backend may be offline or the
+            database needs seeding (<code className="text-sm">npm run prisma:seed</code>).
+          </p>
+        ) : (
         <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
           {products.map((product) => (
             <div
@@ -81,6 +87,7 @@ export default function ProductsSection({
             </div>
           ))}
         </div>
+        )}
 
         {viewAllHref && (
           <div className="mt-12 text-center">

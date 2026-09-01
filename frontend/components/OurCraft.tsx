@@ -18,7 +18,14 @@ export default function OurCraft({ services }: { services: Service[] }) {
         </div>
 
         <div className="mt-12">
-          <ServiceGrid services={services} />
+          {services.length > 0 ? (
+            <ServiceGrid services={services} />
+          ) : (
+            <p className="rounded-card border border-gold/20 bg-white px-6 py-10 text-center text-ink/60">
+              Services are loading — if this stays empty, the backend may be offline or the
+              database needs seeding (<code className="text-sm">npm run prisma:seed</code>).
+            </p>
+          )}
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
