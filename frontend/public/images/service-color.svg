@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+  <defs>
+    <linearGradient id="g-service-color" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F1D36" />
+      <stop offset="100%" stop-color="#14110F" />
+    </linearGradient>
+    <radialGradient id="glow-service-color" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#C9A24B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#g-service-color)" />
+  <rect width="900" height="1100" fill="url(#glow-service-color)" />
+  <line x1="0" y1="983" x2="900" y2="3" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="168.33333333333326" x2="900" y2="288.33333333333326" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="639.6666666666667" x2="900" y2="759.6666666666667" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="309" x2="900" y2="429" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="427.3333333333335" x2="900" y2="547.3333333333335" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="52.66666666666674" x2="900" y2="172.66666666666674" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" />
+  <rect x="0" y="0" width="900" height="1100" fill="none" stroke="#C9A24B" stroke-opacity="0.25" stroke-width="1" />
+  <text x="50%" y="544" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40.90909090909091" fill="#F0C869" letter-spacing="1">Hair Color &amp; Highlights</text>
+  
+</svg>

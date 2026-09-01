@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FBF3E3;
+  color: #14110F;
+}
+
+::selection {
+  background-color: #C9A24B;
+  color: #14110F;
+}
+
+@layer components {
+  .section-heading {
+    @apply font-serif text-3xl md:text-5xl text-navy tracking-tight;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs md:text-sm uppercase tracking-[0.35em] text-gold-dark;
+  }
+
+  .curved-card {
+    @apply rounded-card border border-gold/20 bg-white/70 backdrop-blur-sm shadow-soft;
+  }
+
+  .gold-button {
+    @apply inline-flex items-center justify-center rounded-pill bg-gradient-to-r from-gold to-glow px-7 py-3 font-sans text-sm font-semibold tracking-wide text-ink shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  .outline-button {
+    @apply inline-flex items-center justify-center rounded-pill border border-gold/60 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-gold hover:text-ink;
+  }
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: scroll-x 36s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
