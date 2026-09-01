@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+  <defs>
+    <linearGradient id="g-service-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F1D36" />
+      <stop offset="100%" stop-color="#14110F" />
+    </linearGradient>
+    <radialGradient id="glow-service-skin" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#C9A24B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#g-service-skin)" />
+  <rect width="900" height="1100" fill="url(#glow-service-skin)" />
+  <line x1="0" y1="649" x2="900" y2="769" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="401.33333333333337" x2="900" y2="521.3333333333334" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="668.6666666666667" x2="900" y2="788.6666666666667" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="862" x2="900" y2="982" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="359.3333333333335" x2="900" y2="479.3333333333335" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="594.6666666666667" x2="900" y2="714.6666666666667" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" />
+  <rect x="0" y="0" width="900" height="1100" fill="none" stroke="#C9A24B" stroke-opacity="0.25" stroke-width="1" />
+  <text x="50%" y="544" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40.90909090909091" fill="#F0C869" letter-spacing="1">Skin &amp; Facial Care</text>
+  
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+  <defs>
+    <linearGradient id="g-offer-banner" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F1D36" />
+      <stop offset="100%" stop-color="#14110F" />
+    </linearGradient>
+    <radialGradient id="glow-offer-banner" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#C9A24B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="500" fill="url(#g-offer-banner)" />
+  <rect width="1600" height="500" fill="url(#glow-offer-banner)" />
+  <line x1="0" y1="-67" x2="1600" y2="53" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="74.33333333333333" x2="1600" y2="194.33333333333331" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="164.66666666666666" x2="1600" y2="284.66666666666663" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="249" x2="1600" y2="369" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="207.33333333333331" x2="1600" y2="327.3333333333333" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="25.66666666666663" x2="1600" y2="145.66666666666663" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" />
+  <rect x="0" y="0" width="1600" height="500" fill="none" stroke="#C9A24B" stroke-opacity="0.25" stroke-width="1" />
+  
+  
+</svg>

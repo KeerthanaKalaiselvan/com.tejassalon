@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g-login-gate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F1D36" />
+      <stop offset="100%" stop-color="#14110F" />
+    </linearGradient>
+    <radialGradient id="glow-login-gate" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#C9A24B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g-login-gate)" />
+  <rect width="1600" height="900" fill="url(#glow-login-gate)" />
+  <line x1="0" y1="-529" x2="1600" y2="-409" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="83" x2="1600" y2="203" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="66" x2="1600" y2="186" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="-142" x2="1600" y2="-22" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="-37" x2="1600" y2="83" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" /><line x1="0" y1="-5" x2="1600" y2="115" stroke="#C9A24B" stroke-opacity="0.08" stroke-width="1.5" />
+  <rect x="0" y="0" width="1600" height="900" fill="none" stroke="#C9A24B" stroke-opacity="0.25" stroke-width="1" />
+  
+  
+</svg>
