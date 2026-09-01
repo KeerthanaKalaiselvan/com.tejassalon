@@ -3,8 +3,8 @@ const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_SALON_WHATSAPP_NUMBER || "919999
 export const SALON_ADDRESS =
   "Udhaya Nagar Main Rd, opp. to Amala Annai Stores, Sabari Nagar, Mugalivakkam, Chennai, Tamil Nadu 600116";
 export const SALON_PHONE_DISPLAY = "+91 90030 09080";
-export const SALON_DIRECTIONS_URL =
-  "https://www.google.com/maps/place/Tejas+Beauty+Lounge+%26+Makeup+Studio/@13.0271627,80.1702193,17z";
+export const SALON_DIRECTIONS_URL = "https://maps.app.goo.gl/NL2qqdzwNhRThxXy7";
+const SALON_MAP_QUERY = "Tejas Beauty Lounge & Makeup Studio, Udhaya Nagar Main Rd, Mugalivakkam, Chennai";
 
 export default function ContactMap() {
   return (
@@ -13,7 +13,7 @@ export default function ContactMap() {
         <div className="overflow-hidden rounded-card border border-gold/25 shadow-soft">
           <iframe
             title="Tejas Salon location"
-            src="https://maps.google.com/maps?q=13.0271627,80.1702193&z=16&output=embed"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(SALON_MAP_QUERY)}&z=16&output=embed`}
             className="h-80 w-full md:h-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
