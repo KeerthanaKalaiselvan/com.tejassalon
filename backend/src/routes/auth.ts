@@ -8,10 +8,11 @@ import { SERVICE_SELECT } from "../lib/selects";
 
 const router = Router();
 
+const isProduction = process.env.NODE_ENV === "production";
 const cookieOptions = {
   httpOnly: true,
-  sameSite: "lax" as const,
-  secure: process.env.NODE_ENV === "production",
+  sameSite: isProduction ? ("none" as const) : ("lax" as const),
+  secure: isProduction,
   maxAge: 30 * 24 * 60 * 60 * 1000,
 };
 
