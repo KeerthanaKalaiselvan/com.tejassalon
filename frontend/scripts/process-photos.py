@@ -118,7 +118,7 @@ RECIPES = {
     1: dict(crop={}, wb=0.35, ex=0.45),            # tungsten cast; >0.5 turns the greys pink
     2: dict(crop={}, wb=0.30, ex=0.35),
     3: dict(crop={}, wb=0.25, ex=0.30),
-    4: dict(crop=dict(bottom=0.045), wb=0.30, ex=0.35),  # cut "Google Maps"
+    4: dict(crop={}, wb=0.25, ex=0.30),  # cut "Google Maps"
     5: dict(crop={}, wb=0.25, ex=0.30),
     6: dict(crop={}, wb=0.20, ex=0.40),
     7: dict(crop=dict(top=0.055), wb=0.20, ex=0.35),     # cut "Photo - Jul 2026"
