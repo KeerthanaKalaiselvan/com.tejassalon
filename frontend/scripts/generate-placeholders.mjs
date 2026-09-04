@@ -1,6 +1,7 @@
 // Generates on-brand SVG placeholder imagery so the site renders fully
 // before real salon photography is dropped into public/images.
 // Run: node scripts/generate-placeholders.mjs
+//
 import { mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
