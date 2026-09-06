@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import Mark from "./Mark";
 import { SITE, telHref } from "@/lib/site";
+import { ShopIcon, PersonCircleIcon } from "./Icons";
 
 const NAV_LINKS = [
   { href: "/#about", label: "About" },
@@ -62,8 +63,13 @@ export default function Header() {
           </Link>
           {user ? (
             <div className="group relative">
-              <button type="button" className="outline-button !px-4 !py-2 !text-[0.68rem]">
-                {user.name || user.mobile}
+              <button
+                type="button"
+                title={user.name || user.mobile}
+                aria-label={`Account: ${user.name || user.mobile}`}
+                className="grid h-9 w-9 place-items-center rounded-full border border-gold/30 bg-gold/5 text-gold-light transition-all duration-300 hover:border-gold/60 hover:bg-gold/15 hover:text-white"
+              >
+                <PersonCircleIcon className="h-[1.15rem] w-[1.15rem]" />
               </button>
               <div className="invisible absolute right-0 mt-2 w-44 rounded-card border border-gold/20 bg-ink-soft p-2 opacity-0 shadow-soft transition-all duration-200 group-hover:visible group-hover:opacity-100">
                 <Link href="/history" className="block rounded-card px-3 py-2 text-sm text-cream/90 hover:bg-gold/10 hover:text-gold">
@@ -82,20 +88,43 @@ export default function Header() {
               </div>
             </div>
           ) : (
-            <Link href="/login" className="font-sans text-[0.72rem] uppercase tracking-[0.16em] text-cream/70 transition-colors hover:text-gold">
-              Login
+            <Link
+              href="/login"
+              title="Log in"
+              aria-label="Log in"
+              className="grid h-9 w-9 place-items-center rounded-full border border-gold/30 bg-gold/5 text-gold-light transition-all duration-300 hover:border-gold/60 hover:bg-gold/15 hover:text-white"
+            >
+              <PersonCircleIcon className="h-[1.15rem] w-[1.15rem]" />
             </Link>
           )}
+
+          <Link
+            href="/products"
+            title="Shop take-home products"
+            aria-label="Shop take-home products"
+            className="ml-1 grid h-9 w-9 place-items-center rounded-full border border-gold/30 bg-gold/5 text-gold-light transition-all duration-300 hover:border-gold/60 hover:bg-gold/15 hover:text-white"
+          >
+            <ShopIcon className="h-[1.05rem] w-[1.05rem]" />
+          </Link>
         </div>
 
-        <button
-          type="button"
-          aria-expanded={mobileOpen}
-          className="rounded-pill border border-cream/25 px-4 py-2 font-sans text-[0.68rem] uppercase tracking-[0.16em] text-cream lg:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          {mobileOpen ? "Close" : "Menu"}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <Link
+            href="/products"
+            aria-label="Shop take-home products"
+            className="grid h-9 w-9 place-items-center rounded-full border border-gold/30 bg-gold/5 text-gold-light"
+          >
+            <ShopIcon className="h-[1.05rem] w-[1.05rem]" />
+          </Link>
+          <button
+            type="button"
+            aria-expanded={mobileOpen}
+            className="rounded-pill border border-cream/25 px-4 py-2 font-sans text-[0.68rem] uppercase tracking-[0.16em] text-cream"
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {mobileOpen ? "Close" : "Menu"}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
