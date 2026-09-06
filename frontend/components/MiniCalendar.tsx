@@ -35,27 +35,27 @@ export default function MiniCalendar({
   const canGoBack = new Date(viewDate.getFullYear(), viewDate.getMonth(), 1) > today;
 
   return (
-    <div className="rounded-2xl border border-gold/20 bg-white p-4 shadow-soft">
+    <div className="rounded-2xl border border-gold/20 bg-ink-soft p-4 shadow-soft">
       <div className="flex items-center justify-between">
         <button
           type="button"
           onClick={() => changeMonth(-1)}
           disabled={!canGoBack}
-          className="rounded-pill border border-gold/30 px-3 py-1 text-xs text-navy disabled:opacity-30"
+          className="rounded-pill border border-gold/30 px-3 py-1 text-xs text-cream disabled:opacity-30"
         >
           Prev
         </button>
-        <p className="font-serif text-lg text-navy">{monthLabel}</p>
+        <p className="font-serif text-lg text-cream">{monthLabel}</p>
         <button
           type="button"
           onClick={() => changeMonth(1)}
-          className="rounded-pill border border-gold/30 px-3 py-1 text-xs text-navy"
+          className="rounded-pill border border-gold/30 px-3 py-1 text-xs text-cream"
         >
           Next
         </button>
       </div>
 
-      <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs text-ink/40">
+      <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs text-muted-dim">
         {WEEKDAYS.map((d, i) => (
           <span key={`${d}-${i}`}>{d}</span>
         ))}
@@ -77,8 +77,8 @@ export default function MiniCalendar({
                 isSelected
                   ? "bg-gold text-ink font-semibold"
                   : disabled
-                  ? "text-ink/20"
-                  : "text-navy hover:bg-gold/15"
+                  ? "text-muted-dim"
+                  : "text-cream hover:bg-gold/15"
               }`}
             >
               {date.getDate()}

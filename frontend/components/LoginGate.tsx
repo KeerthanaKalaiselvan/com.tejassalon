@@ -17,7 +17,7 @@ export default function LoginGate({
       <div className="text-center">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="section-heading mt-3 text-2xl md:text-3xl">{title}</h1>
-        <p className="mt-4 text-ink/65">{subtitle}</p>
+        <p className="mt-4 text-muted">{subtitle}</p>
         <Link
           href={`/login?next=${encodeURIComponent(next)}`}
           className="gold-button mt-8 inline-flex"

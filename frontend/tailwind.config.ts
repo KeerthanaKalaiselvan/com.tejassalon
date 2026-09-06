@@ -1,5 +1,11 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Tejas design system.
+ * A deliberately single-world palette: a night-lit room.
+ * Token NAMES are kept from v1 so existing component classes keep working;
+ * only the VALUES move to the Tejas identity (plum-black ground, one gold accent).
+ */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
@@ -7,39 +13,49 @@ const config: Config = {
       colors: {
         gold: {
           DEFAULT: "#C9A24B",
-          light: "#E3C077",
-          dark: "#9C7A34",
+          light: "#E8CE9B",
+          dark: "#A9762C",
         },
-        glow: "#F0C869",
+        glow: "#F5E7C9",
         cream: {
-          DEFAULT: "#FBF3E3",
-          dim: "#F1E3C6",
+          DEFAULT: "#F4EBDD",
+          dim: "#D8CABD",
         },
         ink: {
-          DEFAULT: "#14110F",
-          soft: "#1E1A15",
+          DEFAULT: "#150E13",   // page ground: warm plum-black
+          soft: "#1C131A",      // raised surface
         },
+        // v1 used `navy` for its dark sections - remapped to plum so every
+        // existing bg-navy / text-navy class lands on the Tejas palette.
         navy: {
-          DEFAULT: "#0F1D36",
-          light: "#16294A",
-          deep: "#0A1526",
+          DEFAULT: "#1C131A",
+          light: "#241A22",
+          deep: "#120C10",
+        },
+        muted: {
+          DEFAULT: "#A28D82",   // warm-biased neutral, never a flat grey
+          dim: "#7C6A63",
         },
       },
       fontFamily: {
-        serif: ["var(--font-display)", "Georgia", "Times New Roman", "serif"],
-        sans: ["var(--font-body)", "Helvetica", "Arial", "sans-serif"],
+        serif: ["var(--font-display)", "Palatino Linotype", "Palatino", "Georgia", "serif"],
+        sans: ["var(--font-body)", "Futura", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        card: "1.75rem",
+        card: "2px",   // the identity is editorial, not rounded-card
         pill: "999px",
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(201,162,75,0.25), 0 20px 60px -20px rgba(201,162,75,0.35)",
-        soft: "0 20px 50px -25px rgba(0,0,0,0.5)",
+        glow: "0 0 0 1px rgba(201,155,76,0.22), 0 24px 70px -30px rgba(201,155,76,0.30)",
+        soft: "0 24px 60px -30px rgba(0,0,0,0.65)",
       },
       backgroundImage: {
         "gold-radial":
-          "radial-gradient(circle at 30% 20%, rgba(240,200,105,0.18), transparent 60%)",
+          "radial-gradient(circle at 30% 20%, rgba(201,155,76,0.16), transparent 62%)",
+      },
+      letterSpacing: {
+        label: "0.30em",
+        wordmark: "0.10em",
       },
       keyframes: {
         "scroll-x": {
@@ -51,14 +67,19 @@ const config: Config = {
           "100%": { transform: "translateY(120vh) rotate(360deg)", opacity: "0" },
         },
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "draw-x": {
+          "0%": { opacity: "0", transform: "scaleX(0)" },
+          "100%": { opacity: "1", transform: "scaleX(1)" },
         },
       },
       animation: {
         "scroll-x": "scroll-x 32s linear infinite",
         confetti: "confetti 3.2s ease-in forwards",
-        "fade-up": "fade-up 0.7s ease-out forwards",
+        "fade-up": "fade-up 0.9s cubic-bezier(.22,.61,.36,1) forwards",
+        "draw-x": "draw-x 1.2s cubic-bezier(.22,.61,.36,1) forwards",
       },
     },
   },

@@ -111,7 +111,7 @@ function LoginPageContent() {
   }
 
   if (loading) {
-    return <div className="mx-auto max-w-3xl px-6 py-24 text-center text-navy">Loading…</div>;
+    return <div className="mx-auto max-w-3xl px-6 py-24 text-center text-cream">Loading…</div>;
   }
 
   return (
@@ -119,7 +119,7 @@ function LoginPageContent() {
       {view === "login" && (
         <>
           <p className="eyebrow">Welcome Back</p>
-          <h1 className="section-heading mt-1 text-navy md:text-4xl">Log In</h1>
+          <h1 className="section-heading mt-1 text-cream md:text-4xl">Log In</h1>
           <form onSubmit={handleLogin} className="mt-6 flex flex-col gap-4">
             <FieldMobile mobile={mobile} setMobile={setMobile} />
             <FieldPassword
@@ -133,11 +133,11 @@ function LoginPageContent() {
               {submitting ? "Logging in…" : "Log In"}
             </button>
           </form>
-          <p className="mt-5 text-center text-sm text-ink/60">
+          <p className="mt-5 text-center text-sm text-muted">
             New here?{" "}
             <button
               type="button"
-              className="text-gold-dark underline underline-offset-4"
+              className="text-gold underline underline-offset-4"
               onClick={() => {
                 setError("");
                 setView("register");
@@ -151,11 +151,11 @@ function LoginPageContent() {
 
       {view === "register" && (
         <>
-          <h1 className="section-heading mt-1 text-navy md:text-4xl">Create Your Account</h1>
+          <h1 className="section-heading mt-1 text-cream md:text-4xl">Create Your Account</h1>
           <form onSubmit={handleRegisterStep1} className="mt-6 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <label className="text-sm text-ink/60">
-                Name <span className="text-gold-dark">*</span>
+              <label className="text-sm text-muted">
+                Name <span className="text-gold">*</span>
               </label>
               <input
                 required
@@ -178,11 +178,11 @@ function LoginPageContent() {
               {submitting ? "Creating account…" : "Continue"}
             </button>
           </form>
-          <p className="mt-5 text-center text-sm text-ink/60">
+          <p className="mt-5 text-center text-sm text-muted">
             Already have an account?{" "}
             <button
               type="button"
-              className="text-gold-dark underline underline-offset-4"
+              className="text-gold underline underline-offset-4"
               onClick={() => {
                 setError("");
                 setView("login");
@@ -197,15 +197,15 @@ function LoginPageContent() {
       {view === "onboarding" && (
         <>
           <p className="eyebrow">Step 2 of 2</p>
-          <h1 className="section-heading mt-1 text-navy md:text-4xl">What Brings You In?</h1>
-          <p className="mt-2 text-sm text-ink/60">
+          <h1 className="section-heading mt-1 text-cream md:text-4xl">What Brings You In?</h1>
+          <p className="mt-2 text-sm text-muted">
             Select everything you&apos;re interested in — we&apos;ll tailor recommendations for you.
           </p>
           <form onSubmit={handleOnboardingSubmit} className="mt-6">
             {servicesLoading ? (
-              <p className="text-sm text-ink/50">Loading services…</p>
+              <p className="text-sm text-muted-dim">Loading services…</p>
             ) : services.length === 0 ? (
-              <p className="rounded-2xl border border-gold/20 bg-cream-dim px-4 py-4 text-sm text-ink/60">
+              <p className="rounded-2xl border border-gold/20 bg-ink px-4 py-4 text-sm text-muted">
                 No services to choose from yet — you can still continue, and we&apos;ll follow up
                 to hear what you&apos;re looking for.
               </p>
@@ -221,11 +221,11 @@ function LoginPageContent() {
                       className={`rounded-2xl border px-3 py-4 text-left transition-all duration-200 ${
                         active
                           ? "border-gold bg-gold/15 shadow-glow"
-                          : "border-gold/20 bg-cream-dim hover:border-gold/50"
+                          : "border-gold/20 bg-ink hover:border-gold/50"
                       }`}
                     >
-                      <span className="block font-serif text-base text-navy">{service.name}</span>
-                      <span className="mt-1 block text-xs text-ink/45">{service.category}</span>
+                      <span className="block font-serif text-base text-cream">{service.name}</span>
+                      <span className="mt-1 block text-xs text-muted-dim">{service.category}</span>
                     </button>
                   );
                 })}
@@ -251,7 +251,7 @@ export default function LoginPage() {
 }
 
 const INPUT_CLASS =
-  "rounded-xl border border-gold/30 bg-cream-dim px-4 py-3 text-navy placeholder:text-navy/40 focus:border-gold focus:bg-white focus:outline-none transition-colors";
+  "rounded-xl border border-gold/30 bg-ink px-4 py-3 text-cream placeholder:text-muted-dim focus:border-gold focus:bg-ink-soft focus:outline-none transition-colors";
 
 function FieldMobile({
   mobile,
@@ -264,8 +264,8 @@ function FieldMobile({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm text-ink/60">
-        Mobile number {required && <span className="text-gold-dark">*</span>}
+      <label className="text-sm text-muted">
+        Mobile number {required && <span className="text-gold">*</span>}
       </label>
       <input
         required={required}
@@ -294,8 +294,8 @@ function FieldPassword({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm text-ink/60">
-        {label} {required && <span className="text-gold-dark">*</span>}
+      <label className="text-sm text-muted">
+        {label} {required && <span className="text-gold">*</span>}
       </label>
       <input
         required={required}
@@ -305,7 +305,7 @@ function FieldPassword({
         placeholder={hint ? "Create a password" : "Enter your password"}
         className={INPUT_CLASS}
       />
-      {hint && <p className="text-xs text-ink/45">{hint}</p>}
+      {hint && <p className="text-xs text-muted-dim">{hint}</p>}
     </div>
   );
 }

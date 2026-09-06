@@ -15,10 +15,17 @@ enum AppointmentStatus {
 }
 
 enum OrderStatus {
+  PENDING_PAYMENT
   PLACED
+  PAID
   CONFIRMED
   COMPLETED
   CANCELLED
+}
+
+enum PaymentMethod {
+  PAY_AT_SALON
+  RAZORPAY
 }
 
 enum EnquiryStatus {
@@ -121,6 +128,17 @@ model Order {
   status    OrderStatus @default(PLACED)
   total     Int
   createdAt DateTime    @default(now())
+
+  // Razorpay. paymentMethod records how the order settles: orders taken in the
+  // studio stay PAY_AT_SALON and never touch these fields.
+  paymentMethod     PaymentMethod @default(PAY_AT_SALON)
+  // NOT @unique: MongoDB unique indexes count null as a value, so a second
+  // pay-at-salon order (razorpayOrderId = null) collides with the first.
+  // Uniqueness is guaranteed by Razorpay's own ids; double-settlement is
+  // prevented in settleOrder(), which no-ops once status is PAID.
+  razorpayOrderId   String?
+  razorpayPaymentId String?
+  paidAt            DateTime?
 
   items OrderItem[]
 }

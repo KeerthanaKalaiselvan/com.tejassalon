@@ -1,42 +1,52 @@
-const GALLERY_IMAGES = [
-  { src: "gallery-1", alt: "Styling stations and guest sofa inside Tejas Salon" },
-  { src: "gallery-2", alt: "Guest lounge at Tejas Salon" },
-  { src: "gallery-3", alt: "Styling mirror and product shelves at Tejas Salon" },
+import Image from "next/image";
+import Section from "./Section";
+import Reveal from "./Reveal";
+
+/**
+ * Real photographs of the studio.
+ *
+ * Deliberately four, not more: the remaining interior shots are the same small
+ * room from slightly different angles, and repetition reads as padding — it
+ * signals "not much to show" rather than the opposite. The second storefront
+ * photo now lives in the Visit section, next to the address, where it helps
+ * someone actually find the door.
+ */
+const SHOTS = [
+  {
+    src: "/images/gallery-4.jpg",
+    alt: "The lit Tejas shopfront on Udhaya Nagar Main Road at dusk",
+    span: "col-span-2 row-span-2",
+  },
+  { src: "/images/gallery-3.jpg", alt: "A makeup and styling station at the studio", span: "" },
+  { src: "/images/hero-banner.jpg", alt: "Styling chairs and product shelves inside the studio", span: "" },
+  { src: "/images/gallery-2.jpg", alt: "The waiting area inside the studio", span: "" },
 ];
 
 export default function Gallery() {
-  const looped = [...GALLERY_IMAGES, ...GALLERY_IMAGES];
-
   return (
-    <section id="gallery" className="bg-cream py-24">
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
-        <p className="eyebrow">Gallery</p>
-        <h2 className="section-heading mt-3">A Look Inside Tejas Salon</h2>
-      </div>
+    <Section id="gallery" eyebrow="The Studio">
+      <Reveal delay={0.06}>
+        <h2 className="section-heading">Come and have a look.</h2>
+      </Reveal>
 
-      <div className="relative mt-12 overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-cream to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-cream to-transparent" />
-        <div className="marquee-track flex w-max gap-6 px-6">
-          {looped.map((image, i) => (
-            <div
-              key={`${image.src}-${i}`}
-              className="h-64 w-64 shrink-0 overflow-hidden rounded-card border border-gold/20 shadow-soft sm:h-72 sm:w-72"
-            >
-              <picture>
-                <source srcSet={`/images/${image.src}.webp`} type="image/webp" />
-                <img
-                  src={`/images/${image.src}.jpg`}
-                  alt={image.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
-              </picture>
-            </div>
-          ))}
-        </div>
+      <div className="mt-[clamp(30px,4vw,46px)] grid auto-rows-[150px] grid-cols-2 gap-3 md:auto-rows-[188px] md:grid-cols-4">
+        {SHOTS.map((s, i) => (
+          <Reveal
+            key={s.src}
+            delay={0.08 + i * 0.07}
+            className={`group overflow-hidden rounded-card border border-gold/15 ${s.span}`}
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              width={1280}
+              height={960}
+              sizes="(max-width: 768px) 50vw, 25vw"
+              className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.22,.61,.36,1)] group-hover:scale-[1.04]"
+            />
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,15 +1,24 @@
 import type { MetadataRoute } from "next";
+import { siteUrl, isPublicSite } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const base = siteUrl();
+
+  // Never let a staging/preview host get indexed.
+  if (!isPublicSite()) {
+    return { rules: [{ userAgent: "*", disallow: "/" }] };
+  }
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/cart", "/history", "/login"],
+        // Private or thin pages. Nothing here is useful in search results.
+        disallow: ["/admin", "/admin/", "/cart", "/history", "/login"],
       },
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${base}/sitemap.xml`,
+    host: base,
   };
 }

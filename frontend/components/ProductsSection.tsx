@@ -9,7 +9,7 @@ export default function ProductsSection({
   viewAllHref?: string;
 }) {
   return (
-    <section id="products" className="bg-cream py-24">
+    <section id="products" className="bg-ink py-24">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <p className="eyebrow">Take Care Home</p>
         <h2 className="section-heading mt-3">Salon-Grade Hair Care Products</h2>

@@ -4,14 +4,14 @@ import ServiceGrid from "@/components/ServiceGrid";
 
 export default function OurCraft({ services }: { services: Service[] }) {
   return (
-    <section id="craft" className="bg-cream py-24">
+    <section id="craft" className="bg-ink py-24">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow">Our Craft</p>
           <h2 className="section-heading mt-3">
             Hair, Skin &amp; Makeup — Crafted Around You
           </h2>
-          <p className="mt-4 text-ink/70">
+          <p className="mt-4 text-muted">
             Every treatment starts with a real conversation about your hair and skin, then draws
             on trained hands and salon-grade products to deliver results that last.
           </p>
@@ -21,7 +21,7 @@ export default function OurCraft({ services }: { services: Service[] }) {
           {services.length > 0 ? (
             <ServiceGrid services={services} />
           ) : (
-            <p className="rounded-card border border-gold/20 bg-white px-6 py-10 text-center text-ink/60">
+            <p className="rounded-card border border-gold/20 bg-ink-soft px-6 py-10 text-center text-muted">
               Services are loading — if this stays empty, the backend may be offline or the
               database needs seeding (<code className="text-sm">npm run prisma:seed</code>).
             </p>
@@ -31,7 +31,7 @@ export default function OurCraft({ services }: { services: Service[] }) {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/services"
-            className="rounded-pill border border-gold/60 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-navy transition-colors duration-300 hover:bg-gold hover:text-ink"
+            className="rounded-pill border border-gold/60 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-gold hover:text-ink"
           >
             View All Services
           </Link>

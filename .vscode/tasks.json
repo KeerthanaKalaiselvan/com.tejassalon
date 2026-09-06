@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Tejas: backend (API :4000)",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "isBackground": true,
+      "presentation": { "group": "tejas", "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tejas: frontend (site :3070)",
+      "type": "shell",
+      "command": "npm run dev -- -p 3070",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "isBackground": true,
+      "presentation": { "group": "tejas", "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tejas: START EVERYTHING",
+      "dependsOn": [
+        "Tejas: backend (API :4000)",
+        "Tejas: frontend (site :3070)"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Tejas: Prisma Studio (browse the database)",
+      "type": "shell",
+      "command": "npx prisma studio",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "isBackground": true,
+      "presentation": { "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tejas: push schema to MongoDB",
+      "type": "shell",
+      "command": "npx prisma db push",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tejas: seed verified services",
+      "type": "shell",
+      "command": "npm run prisma:seed",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tejas: free ports 3070 + 4000",
+      "type": "shell",
+      "command": "lsof -ti tcp:3070,tcp:4000 | xargs kill -9 2>/dev/null; echo 'ports free'",
+      "problemMatcher": []
+    }
+  ]
+}

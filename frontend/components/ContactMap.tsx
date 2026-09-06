@@ -8,7 +8,7 @@ const SALON_MAP_QUERY = "Tejas Beauty Lounge & Makeup Studio, Udhaya Nagar Main 
 
 export default function ContactMap() {
   return (
-    <section className="bg-cream pb-24">
+    <section className="bg-ink pb-24">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-2 md:px-8">
         <div className="overflow-hidden rounded-card border border-gold/25 shadow-soft">
           <iframe
@@ -25,15 +25,15 @@ export default function ContactMap() {
             <p className="eyebrow">Visit The Salon</p>
             <h2 className="section-heading mt-2 text-3xl">Find Us</h2>
           </div>
-          <p className="text-ink/70">{SALON_ADDRESS}</p>
-          <div className="grid grid-cols-2 gap-4 text-sm text-ink/70">
+          <p className="text-muted">{SALON_ADDRESS}</p>
+          <div className="grid grid-cols-2 gap-4 text-sm text-muted">
             <div>
-              <p className="font-semibold text-navy">Hours</p>
+              <p className="font-semibold text-cream">Hours</p>
               <p>Mon–Fri, 10 AM – 9 PM</p>
               <p>Sat–Sun, 10 AM – 10 PM</p>
             </div>
             <div>
-              <p className="font-semibold text-navy">Phone</p>
+              <p className="font-semibold text-cream">Phone</p>
               <p>{SALON_PHONE_DISPLAY}</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function ContactMap() {
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-fit items-center justify-center rounded-pill border border-navy/30 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-navy transition-colors duration-300 hover:bg-navy hover:text-cream"
+              className="inline-flex w-fit items-center justify-center rounded-pill border border-cream/30 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-navy hover:text-cream"
             >
               Message Us on WhatsApp
             </a>
@@ -50,7 +50,7 @@ export default function ContactMap() {
               href={SALON_DIRECTIONS_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-fit items-center justify-center rounded-pill bg-navy px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-navy/85"
+              className="inline-flex w-fit items-center justify-center rounded-pill bg-navy px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-ink/85"
             >
               Get Directions
             </a>

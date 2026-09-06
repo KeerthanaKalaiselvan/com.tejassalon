@@ -3,21 +3,21 @@ import ProductGrid from "@/components/ProductGrid";
 import { getProducts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Hair Care Products",
+  title: "Take-Home Care",
   description:
-    "Shop salon-grade shampoo, conditioner, hair serum, hair masks and styling products from Tejas Salon.",
+    "Take-home hair and skin care recommended by the specialists at Tejas Beauty Lounge & Makeup Studio, Mugalivakkam, Chennai.",
 };
 
 export default async function ProductsPage() {
   const products = await getProducts();
   return (
-    <div className="bg-cream pb-24 pt-8">
-      <div className="mx-auto max-w-6xl px-6 pt-8 md:px-8">
-        <p className="eyebrow">Shop</p>
-        <h1 className="section-heading mt-3">All Hair Care Products</h1>
-      </div>
-      <div className="mx-auto max-w-6xl px-6 pt-12 md:px-8">
-        <ProductGrid products={products} />
+    <div className="pb-24 pt-8">
+      <div className="mx-auto max-w-[1160px] px-[clamp(20px,5.2vw,72px)] pt-10">
+        <p className="eyebrow">Take Home</p>
+        <h1 className="section-heading mt-3">What our specialists recommend.</h1>
+        <div className="mt-[clamp(28px,3.6vw,44px)]">
+          <ProductGrid products={products} />
+        </div>
       </div>
     </div>
   );

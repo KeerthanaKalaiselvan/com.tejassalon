@@ -2,59 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Tejas - a night-lit room.
+   Single-theme by intent: the ground is painted explicitly so the
+   page never borrows a host background.
+   ============================================================ */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  --ink: #150E13;
+  --ink-2: #1C131A;
+  --cream: #F4EBDD;
+  --gold: #C9A24B;
+  --gold-lt: #E8CE9B;
+  --line: rgba(201, 155, 76, 0.22);
+  --line-soft: rgba(244, 235, 221, 0.09);
+  --e: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* decorative glows sit at negative offsets */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
-  background-color: #FBF3E3;
-  color: #14110F;
+  background-color: var(--ink);
+  color: var(--cream);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background-color: #C9A24B;
-  color: #14110F;
+  background-color: var(--gold);
+  color: #150E13;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-lt);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @layer components {
   .section-heading {
-    @apply font-serif text-3xl md:text-5xl text-navy tracking-tight;
+    @apply font-serif text-3xl md:text-5xl text-cream tracking-tight;
+    text-wrap: balance;
+    line-height: 1.1;
   }
 
   .eyebrow {
-    @apply font-sans text-xs md:text-sm uppercase tracking-[0.35em] text-gold-dark;
+    @apply font-sans text-[0.68rem] md:text-xs uppercase tracking-label text-gold;
   }
 
+  /* editorial plate, not a rounded card */
   .curved-card {
-    @apply rounded-card border border-gold/20 bg-white/70 backdrop-blur-sm shadow-soft;
+    @apply rounded-card border border-gold/25 bg-ink-soft shadow-soft;
+    background-image: linear-gradient(165deg, rgba(201, 155, 76, 0.055), transparent 46%);
   }
 
   .gold-button {
-    @apply inline-flex items-center justify-center rounded-pill bg-gradient-to-r from-gold to-glow px-7 py-3 font-sans text-sm font-semibold tracking-wide text-ink shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-gold px-7 py-3
+           font-sans text-xs font-medium uppercase tracking-[0.17em] text-ink
+           transition-all duration-300 hover:bg-gold-light active:scale-[0.98];
   }
 
   .outline-button {
-    @apply inline-flex items-center justify-center rounded-pill border border-gold/60 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-gold hover:text-ink;
+    @apply inline-flex items-center justify-center gap-2 rounded-pill border border-gold/30
+           bg-gold/5 px-7 py-3 font-sans text-xs font-normal uppercase tracking-[0.17em]
+           text-glow transition-all duration-300 hover:bg-gold/15 hover:border-gold/55 hover:text-white;
   }
+
+  /* form controls, dark-native */
+  .field {
+    @apply w-full rounded-card border border-gold/20 bg-ink px-4 py-3 font-sans text-cream
+           placeholder:text-muted-dim focus:border-gold/60 focus:outline-none transition-colors duration-300;
+  }
+
+  .label {
+    @apply block font-sans text-[0.66rem] uppercase tracking-[0.24em] text-muted mb-2;
+  }
+
+  .hairline {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(90deg, transparent, var(--line) 18%, var(--line) 82%, transparent);
+  }
+}
+
+.reveal { opacity: 0; transform: translateY(20px); }
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.95s var(--e) var(--d, 0s), transform 0.95s var(--e) var(--d, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 @keyframes scroll-x {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.marquee-track {
-  animation: scroll-x 36s linear infinite;
-}
+.marquee-track { animation: scroll-x 36s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

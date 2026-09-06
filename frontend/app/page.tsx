@@ -1,16 +1,13 @@
 import Hero from "@/components/Hero";
-import OurCraft from "@/components/OurCraft";
 import AboutStory from "@/components/AboutStory";
+import ServicesIndex from "@/components/ServicesIndex";
+import SpecialistPicks from "@/components/SpecialistPicks";
 import Gallery from "@/components/Gallery";
-import StyleReels from "@/components/StyleReels";
-import Team from "@/components/Team";
-import ProductsSection from "@/components/ProductsSection";
+import Reviews from "@/components/Reviews";
+import VisitSection from "@/components/VisitSection";
 import FeedbackSection from "@/components/FeedbackSection";
-import EnquirySupport from "@/components/EnquirySupport";
-import ContactMap from "@/components/ContactMap";
 import { getApprovedFeedback, getProducts, getServices } from "@/lib/data";
 
-const HOME_SERVICE_LIMIT = 4;
 const HOME_PRODUCT_LIMIT = 4;
 
 export default async function HomePage() {
@@ -20,22 +17,30 @@ export default async function HomePage() {
     getApprovedFeedback(),
   ]);
 
-  const featuredServices = services.filter((s) => s.featured);
-  const homeServices =
-    featuredServices.length > 0 ? featuredServices.slice(0, HOME_SERVICE_LIMIT) : services.slice(0, HOME_SERVICE_LIMIT);
-
   return (
     <>
       <Hero />
-      <OurCraft services={homeServices} />
+      <hr className="hairline" />
       <AboutStory />
+      <hr className="hairline" />
+      <ServicesIndex services={services} />
+      <hr className="hairline" />
+      <SpecialistPicks
+        products={products.slice(0, HOME_PRODUCT_LIMIT)}
+        viewAllHref={products.length > HOME_PRODUCT_LIMIT ? "/products" : undefined}
+      />
+      <hr className="hairline" />
       <Gallery />
-      <StyleReels />
-      <Team />
-      <ProductsSection products={products.slice(0, HOME_PRODUCT_LIMIT)} viewAllHref="/products" />
-      <FeedbackSection feedback={feedback} />
-      <EnquirySupport />
-      <ContactMap />
+      <hr className="hairline" />
+      <Reviews />
+      <hr className="hairline" />
+      <VisitSection />
+      {feedback.length > 0 && (
+        <>
+          <hr className="hairline" />
+          <FeedbackSection feedback={feedback} />
+        </>
+      )}
     </>
   );
 }

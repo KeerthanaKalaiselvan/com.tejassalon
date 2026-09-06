@@ -86,7 +86,7 @@ export default function BookAppointmentPage() {
   }
 
   if (loading) {
-    return <div className="mx-auto max-w-3xl px-6 py-24 text-center text-navy">Loading…</div>;
+    return <div className="mx-auto max-w-3xl px-6 py-24 text-center text-cream">Loading…</div>;
   }
 
   if (!user) {
@@ -109,8 +109,8 @@ export default function BookAppointmentPage() {
 
       {step === "services" && (
         <div className="mt-10">
-          <h2 className="font-serif text-2xl text-navy">What are you looking for?</h2>
-          <p className="mt-1 text-sm text-ink/60">Select one or more services.</p>
+          <h2 className="font-serif text-2xl text-cream">What are you looking for?</h2>
+          <p className="mt-1 text-sm text-muted">Select one or more services.</p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {services.map((service) => {
               const active = selectedServices.includes(service.id);
@@ -122,11 +122,11 @@ export default function BookAppointmentPage() {
                   className={`rounded-2xl border px-4 py-5 text-left transition-all ${
                     active
                       ? "border-gold bg-gold/15 shadow-glow"
-                      : "border-gold/20 bg-white hover:border-gold/50"
+                      : "border-gold/20 bg-ink-soft hover:border-gold/50"
                   }`}
                 >
-                  <span className="block font-serif text-base text-navy">{service.name}</span>
-                  <span className="mt-1 block text-xs text-ink/50">From ₹{service.priceFrom}</span>
+                  <span className="block font-serif text-base text-cream">{service.name}</span>
+                  <span className="mt-1 block text-xs text-muted-dim">{service.priceFrom > 0 ? `From ₹${service.priceFrom}` : "Price on enquiry"}</span>
                 </button>
               );
             })}
@@ -144,8 +144,8 @@ export default function BookAppointmentPage() {
 
       {step === "slots" && (
         <div className="mt-10">
-          <h2 className="font-serif text-2xl text-navy">Pick 3 preferred date &amp; time options</h2>
-          <p className="mt-1 text-sm text-ink/60">
+          <h2 className="font-serif text-2xl text-cream">Pick 3 preferred date &amp; time options</h2>
+          <p className="mt-1 text-sm text-muted">
             We'll try our best to confirm your first choice — pick a date, then a time between
             9 AM and 11 PM.
           </p>
@@ -154,7 +154,7 @@ export default function BookAppointmentPage() {
             <MiniCalendar selectedDate={pendingDate} onSelect={selectPendingDate} />
 
             <div>
-              <p className="mb-3 text-sm font-semibold text-navy">Available Times</p>
+              <p className="mb-3 text-sm font-semibold text-cream">Available Times</p>
               <div className="grid max-h-72 grid-cols-3 gap-2 overflow-y-auto pr-1">
                 {timeSlots.map((time) => (
                   <button
@@ -165,7 +165,7 @@ export default function BookAppointmentPage() {
                     className={`rounded-lg border px-2 py-2 text-xs transition-colors disabled:opacity-30 ${
                       pendingTime === time
                         ? "border-gold bg-gold text-ink font-semibold"
-                        : "border-gold/20 bg-white text-navy hover:border-gold/50"
+                        : "border-gold/20 bg-ink-soft text-cream hover:border-gold/50"
                     }`}
                   >
                     {time}
@@ -176,7 +176,7 @@ export default function BookAppointmentPage() {
                 type="button"
                 disabled={!pendingDate || !pendingTime || slots.length >= 3}
                 onClick={addSlot}
-                className="mt-4 w-full rounded-pill border border-gold/60 px-7 py-3 text-sm font-semibold tracking-wide text-navy transition-colors duration-300 hover:bg-gold hover:text-ink disabled:opacity-40"
+                className="mt-4 w-full rounded-pill border border-gold/60 px-7 py-3 text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-gold hover:text-ink disabled:opacity-40"
               >
                 Add This Slot ({slots.length}/3)
               </button>
@@ -188,15 +188,15 @@ export default function BookAppointmentPage() {
               {slots.map((slot, i) => (
                 <li
                   key={`${slot.date}-${slot.time}`}
-                  className="flex items-center justify-between rounded-xl border border-gold/25 bg-white px-4 py-3 text-sm"
+                  className="flex items-center justify-between rounded-xl border border-gold/25 bg-ink-soft px-4 py-3 text-sm"
                 >
-                  <span className="text-navy">
+                  <span className="text-cream">
                     Option {i + 1}: {formatDateLabel(slot.date)} at {slot.time}
                   </span>
                   <button
                     type="button"
                     onClick={() => removeSlot(i)}
-                    className="text-xs text-ink/50 hover:text-red-500"
+                    className="text-xs text-muted-dim hover:text-red-500"
                   >
                     Remove
                   </button>
@@ -210,7 +210,7 @@ export default function BookAppointmentPage() {
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Anything you'd like us to know? (optional)"
             rows={3}
-            className="mt-6 w-full rounded-xl border border-gold/30 bg-white px-4 py-3 text-navy placeholder:text-navy/40 focus:border-gold focus:outline-none"
+            className="mt-6 w-full rounded-xl border border-gold/30 bg-ink-soft px-4 py-3 text-cream placeholder:text-muted-dim focus:border-gold focus:outline-none"
           />
 
           {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
@@ -219,7 +219,7 @@ export default function BookAppointmentPage() {
             <button
               type="button"
               onClick={() => setStep("services")}
-              className="rounded-pill border border-gold/50 px-7 py-3 text-sm font-semibold tracking-wide text-navy transition-colors duration-300 hover:bg-gold hover:text-ink"
+              className="rounded-pill border border-gold/50 px-7 py-3 text-sm font-semibold tracking-wide text-cream transition-colors duration-300 hover:bg-gold hover:text-ink"
             >
               Back
             </button>
@@ -243,7 +243,7 @@ export default function BookAppointmentPage() {
               <a href={whatsappLink} target="_blank" rel="noreferrer" className="gold-button">
                 Confirm on WhatsApp
               </a>
-              <p className="mt-3 text-sm text-ink/60">
+              <p className="mt-3 text-sm text-muted">
                 Optional — send us a WhatsApp message so we can confirm faster.
               </p>
             </div>
@@ -261,9 +261,9 @@ function StepIndicator({ step }: { step: Step }) {
     { key: "done", label: "3. Confirmation" },
   ];
   return (
-    <div className="mt-6 flex gap-6 text-xs uppercase tracking-widest text-ink/40">
+    <div className="mt-6 flex gap-6 text-xs uppercase tracking-widest text-muted-dim">
       {steps.map((s) => (
-        <span key={s.key} className={s.key === step ? "text-gold-dark font-semibold" : ""}>
+        <span key={s.key} className={s.key === step ? "text-gold font-semibold" : ""}>
           {s.label}
         </span>
       ))}

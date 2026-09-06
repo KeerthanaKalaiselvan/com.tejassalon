@@ -7,8 +7,8 @@ export default function CenteredCardBackdrop({ children }: { children: React.Rea
         aria-hidden="true"
         className="absolute inset-0 h-full w-full scale-110 object-cover blur-md"
       />
-      <div className="absolute inset-0 bg-navy/50" />
-      <div className="relative w-full max-w-lg rounded-card border border-gold/20 bg-cream p-8 shadow-glow sm:p-10">
+      <div className="absolute inset-0 bg-ink/50" />
+      <div className="relative w-full max-w-lg rounded-card border border-gold/20 bg-ink-soft p-8 shadow-glow sm:p-10">
         {children}
       </div>
     </section>

@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default async function ServicesPage() {
   const services = await getServices();
   return (
-    <div className="bg-cream pb-24 pt-8">
+    <div className="bg-ink pb-24 pt-8">
       <div className="mx-auto max-w-6xl px-6 pt-8 md:px-8">
         <p className="eyebrow">Our Craft</p>
         <h1 className="section-heading mt-3">All Services</h1>
-        <p className="mt-4 max-w-2xl text-ink/70">
+        <p className="mt-4 max-w-2xl text-muted">
           Every treatment starts with a real conversation about your hair and skin, then draws on
           trained hands and salon-grade products to deliver results that last.
         </p>

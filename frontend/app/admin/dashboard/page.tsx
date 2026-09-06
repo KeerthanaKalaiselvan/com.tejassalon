@@ -126,7 +126,7 @@ export default function AdminDashboardPage() {
         <button
           type="button"
           onClick={() => logout().then(() => router.push("/admin"))}
-          className="rounded-pill border border-gold/40 px-5 py-2 text-sm text-navy"
+          className="rounded-pill border border-gold/40 px-5 py-2 text-sm text-cream"
         >
           Log Out
         </button>
@@ -139,7 +139,7 @@ export default function AdminDashboardPage() {
             type="button"
             onClick={() => setTab(t.key)}
             className={`rounded-pill px-5 py-2 text-sm ${
-              tab === t.key ? "bg-gold text-ink" : "border border-gold/30 text-navy"
+              tab === t.key ? "bg-gold text-ink" : "border border-gold/30 text-cream"
             }`}
           >
             {t.label}
@@ -160,20 +160,20 @@ export default function AdminDashboardPage() {
       {tab === "appointments" && (
         <div className="mt-8 flex flex-col gap-4">
           {appointments.map((appt) => (
-            <div key={appt.id} className="rounded-card border border-gold/20 bg-white p-5 shadow-soft">
+            <div key={appt.id} className="rounded-card border border-gold/20 bg-ink-soft p-5 shadow-soft">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-serif text-lg text-navy">
+                  <p className="font-serif text-lg text-cream">
                     {appt.user.name || "Guest"} · {appt.user.mobile}
                   </p>
-                  <p className="text-sm text-ink/60">
+                  <p className="text-sm text-muted">
                     {appt.services.map((s) => s.name).join(", ")}
                   </p>
                 </div>
                 <select
                   value={appt.status}
                   onChange={(e) => updateAppointmentStatus(appt.id, e.target.value)}
-                  className="rounded-lg border border-gold/30 px-3 py-2 text-sm text-navy"
+                  className="rounded-lg border border-gold/30 px-3 py-2 text-sm text-cream"
                 >
                   {["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED"].map((s) => (
                     <option key={s} value={s}>
@@ -182,7 +182,7 @@ export default function AdminDashboardPage() {
                   ))}
                 </select>
               </div>
-              <ul className="mt-3 flex flex-col gap-1 text-sm text-ink/50">
+              <ul className="mt-3 flex flex-col gap-1 text-sm text-muted-dim">
                 {appt.slots.map((slot) => (
                   <li key={slot.rank}>
                     Option {slot.rank}: {formatDateLabel(slot.date)} at {slot.time}
@@ -191,16 +191,16 @@ export default function AdminDashboardPage() {
               </ul>
             </div>
           ))}
-          {appointments.length === 0 && <p className="text-ink/60">No appointments yet.</p>}
+          {appointments.length === 0 && <p className="text-muted">No appointments yet.</p>}
         </div>
       )}
 
       {tab === "enquiries" && (
         <div className="mt-8 flex flex-col gap-4">
           {enquiries.map((enq) => (
-            <div key={enq.id} className="rounded-card border border-gold/20 bg-white p-5 shadow-soft">
+            <div key={enq.id} className="rounded-card border border-gold/20 bg-ink-soft p-5 shadow-soft">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="font-serif text-lg text-navy">
+                <p className="font-serif text-lg text-cream">
                   {enq.name} · {enq.mobile}
                 </p>
                 <button
@@ -208,54 +208,54 @@ export default function AdminDashboardPage() {
                   onClick={() =>
                     updateEnquiryStatus(enq.id, enq.status === "NEW" ? "RESPONDED" : "NEW")
                   }
-                  className="rounded-pill border border-gold/40 px-4 py-1.5 text-xs text-navy"
+                  className="rounded-pill border border-gold/40 px-4 py-1.5 text-xs text-cream"
                 >
                   {enq.status === "NEW" ? "Mark Responded" : "Mark New"}
                 </button>
               </div>
-              <p className="mt-2 text-sm text-ink/60">{enq.message}</p>
+              <p className="mt-2 text-sm text-muted">{enq.message}</p>
             </div>
           ))}
-          {enquiries.length === 0 && <p className="text-ink/60">No enquiries yet.</p>}
+          {enquiries.length === 0 && <p className="text-muted">No enquiries yet.</p>}
         </div>
       )}
 
       {tab === "feedback" && (
         <div className="mt-8 flex flex-col gap-4">
           {feedback.map((f) => (
-            <div key={f.id} className="rounded-card border border-gold/20 bg-white p-5 shadow-soft">
+            <div key={f.id} className="rounded-card border border-gold/20 bg-ink-soft p-5 shadow-soft">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="font-serif text-lg text-navy">
+                <p className="font-serif text-lg text-cream">
                   {f.name} · {"★".repeat(f.rating)}
                 </p>
                 <button
                   type="button"
                   onClick={() => toggleFeedbackApproval(f.id, !f.approved)}
                   className={`rounded-pill px-4 py-1.5 text-xs ${
-                    f.approved ? "border border-gold/40 text-navy" : "bg-gold text-ink"
+                    f.approved ? "border border-gold/40 text-cream" : "bg-gold text-ink"
                   }`}
                 >
                   {f.approved ? "Unpublish" : "Approve & Publish"}
                 </button>
               </div>
-              <p className="mt-2 text-sm text-ink/60">{f.message}</p>
+              <p className="mt-2 text-sm text-muted">{f.message}</p>
             </div>
           ))}
-          {feedback.length === 0 && <p className="text-ink/60">No feedback yet.</p>}
+          {feedback.length === 0 && <p className="text-muted">No feedback yet.</p>}
         </div>
       )}
 
       {tab === "orders" && (
         <div className="mt-8 flex flex-col gap-4">
           {orders.map((order) => (
-            <div key={order.id} className="rounded-card border border-gold/20 bg-white p-5 shadow-soft">
+            <div key={order.id} className="rounded-card border border-gold/20 bg-ink-soft p-5 shadow-soft">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="font-serif text-lg text-navy">
+                <p className="font-serif text-lg text-cream">
                   {order.user.name || "Guest"} · {order.user.mobile}
                 </p>
-                <span className="text-sm font-semibold text-gold-dark">₹{order.total}</span>
+                <span className="text-sm font-semibold text-gold">₹{order.total}</span>
               </div>
-              <ul className="mt-2 flex flex-col gap-1 text-sm text-ink/60">
+              <ul className="mt-2 flex flex-col gap-1 text-sm text-muted">
                 {order.items.map((item, i) => (
                   <li key={i}>
                     {item.product.name} × {item.quantity}
@@ -264,7 +264,7 @@ export default function AdminDashboardPage() {
               </ul>
             </div>
           ))}
-          {orders.length === 0 && <p className="text-ink/60">No orders yet.</p>}
+          {orders.length === 0 && <p className="text-muted">No orders yet.</p>}
         </div>
       )}
     </section>
@@ -273,9 +273,9 @@ export default function AdminDashboardPage() {
 
 function StatCard({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-card border border-gold/20 bg-white p-5 text-center shadow-soft">
-      <p className="font-serif text-3xl text-navy">{value}</p>
-      <p className="mt-1 text-xs uppercase tracking-widest text-ink/50">{label}</p>
+    <div className="rounded-card border border-gold/20 bg-ink-soft p-5 text-center shadow-soft">
+      <p className="font-serif text-3xl text-cream">{value}</p>
+      <p className="mt-1 text-xs uppercase tracking-widest text-muted-dim">{label}</p>
     </div>
   );
 }

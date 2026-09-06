@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
           placeholder="Admin mobile number"
-          className="rounded-xl border border-gold/30 bg-white px-4 py-3 text-navy placeholder:text-navy/40 focus:border-gold focus:outline-none"
+          className="rounded-xl border border-gold/30 bg-ink-soft px-4 py-3 text-cream placeholder:text-muted-dim focus:border-gold focus:outline-none"
         />
         <input
           required
@@ -69,22 +69,22 @@ export default function AdminLoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="rounded-xl border border-gold/30 bg-white px-4 py-3 text-navy placeholder:text-navy/40 focus:border-gold focus:outline-none"
+          className="rounded-xl border border-gold/30 bg-ink-soft px-4 py-3 text-cream placeholder:text-muted-dim focus:border-gold focus:outline-none"
         />
 
         {captcha?.mode === "math" && (
-          <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-white px-4 py-3">
-            <span className="font-serif text-lg text-navy">{captcha.question} =</span>
+          <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-ink-soft px-4 py-3">
+            <span className="font-serif text-lg text-cream">{captcha.question} =</span>
             <input
               required
               value={captchaAnswer}
               onChange={(e) => setCaptchaAnswer(e.target.value.replace(/[^0-9]/g, ""))}
-              className="w-20 rounded-lg border border-gold/30 px-2 py-1 text-navy focus:border-gold focus:outline-none"
+              className="w-20 rounded-lg border border-gold/30 px-2 py-1 text-cream focus:border-gold focus:outline-none"
             />
             <button
               type="button"
               onClick={loadCaptcha}
-              className="ml-auto text-xs text-ink/40 hover:text-gold-dark"
+              className="ml-auto text-xs text-muted-dim hover:text-gold-light"
             >
               Refresh
             </button>
@@ -98,9 +98,9 @@ export default function AdminLoginPage() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-xs text-ink/40">
+      <p className="mt-6 text-center text-xs text-muted-dim">
         First time setting up? Use the seeded admin account, or create one via the
-        <code className="mx-1 rounded bg-navy/5 px-1.5 py-0.5">/api/admin/bootstrap</code>
+        <code className="mx-1 rounded bg-ink/5 px-1.5 py-0.5">/api/admin/bootstrap</code>
         endpoint documented in the backend README.
       </p>
     </section>
